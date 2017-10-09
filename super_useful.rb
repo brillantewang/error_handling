@@ -11,6 +11,9 @@ end
 FRUITS = ["apple", "banana", "orange"]
 
 class CoffeeError < StandardError
+  def message
+    puts "COFFEEEEEEEE~~~~"
+  end
 end
 
 def reaction(maybe_fruit)
@@ -30,7 +33,8 @@ def feed_me_a_fruit
     puts "Feed me a fruit! (Enter the name of a fruit:)"
     maybe_fruit = gets.chomp
     reaction(maybe_fruit)
-  rescue CoffeeError
+  rescue CoffeeError => e
+    e.message
     retry
   end
 end
